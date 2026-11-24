@@ -17,6 +17,8 @@ def main():
     tmp = OUTPUT_PATH + ".tmp"
     with open(tmp, "w", encoding="utf-8") as f:
         f.write(JOKE)
+        f.flush()
+        os.fsync(f.fileno())
     os.replace(tmp, OUTPUT_PATH)
 
 
